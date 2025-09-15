@@ -1,8 +1,9 @@
 # IMDb Sentiment Analysis - Git Ignore File
 
-# Large model files
-models/saved_models/best_dl_model.h5
+# Large model files - now managed by Git LFS
+# models/saved_models/best_dl_model.h5 - tracked by Git LFS
 *.h5
+!models/saved_models/best_dl_model.h5
 *.hdf5
 *.model
 *.pkl
