@@ -72,37 +72,46 @@ python app.py
 ```
 IMDb-sentiment-analysis/
 │
-├── app/                           
-│   ├── app.py                    
-│   └── templates/                
+├── app/                           # Web application
+│   ├── app.py                     # Main Flask application
+│   └── templates/                 # HTML templates
+│       └── index.html             # Main web interface
 │
 ├── data/
-│   ├── raw/                      
-│   └── processed/               
+│   ├── raw/                       # Original dataset
+│   └── processed/                 # Preprocessed data files
 │
 ├── models/
-│   ├── saved_models/             
-│   └── preprocessors/            
+│   ├── saved_models/              # Trained model files
+│   │   ├── best_dl_model.h5       # Deep learning model (Git LFS)
+│   │   └── best_traditional_model.pkl # Traditional ML model
+│   └── preprocessors/             # Feature transformation objects
 │
-├── notebooks/                  
-│   ├── 01_data_exploration.ipynb    
-│   ├── 02_data_preprocessing.ipynb  
-│   ├── 03_model_training.ipynb      
-│   └── 04_model_evaluation.ipynb   
+├── notebooks/                     # Jupyter notebooks
+│   ├── 01_data_exploration.ipynb  # Initial data analysis
+│   ├── 02_data_preprocessing.ipynb# Text preparation workflows
+│   ├── 03_model_training.ipynb    # Model development
+│   └── 04_model_evaluation.ipynb  # Performance analysis
 │
-├── src/                          
-│   ├── config.py               
-│   ├── data_preprocessing.py     
-│   ├── models.py               
-│   └── utils.py                
+├── src/                           # Source code
+│   ├── __init__.py                # Package initialization
+│   ├── config.py                  # Configuration settings
+│   ├── data_preprocessing.py      # Text preprocessing functions
+│   ├── models.py                  # Model definitions
+│   └── utils.py                   # Utility functions
 │
-├── deployment/                   # Deployment configurations
-├── results/                      # Output results and analysis
-├── DETAILS.md                   # Technical deep dive
-├── Dockerfile                   # Docker container configuration
-├── docker-compose.yml           # Multi-container orchestration
-├── requirements.txt             # Python dependencies
-└── README.md                   # This file                  
+├── utils/                         # Additional utilities
+│   └── nltk_check.py              # NLTK resource verification
+│
+├── DETAILS.md                     # Technical deep dive
+├── Dockerfile                     # Docker container configuration
+├── docker-compose.yml             # Multi-container orchestration
+├── .gitattributes                 # Git LFS configuration
+├── .gitignore                     # Git ignore patterns
+├── render.yaml                    # Render.com deployment settings
+├── requirements.txt               # Python dependencies
+├── wsgi.py                        # WSGI entry point for production
+└── README.md                      # This file                  
 ```
 
 ## Process Overview
