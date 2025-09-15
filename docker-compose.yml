@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  # Main sentiment analysis web application
+  sentiment-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: imdb-sentiment-app
+    ports:
+      - "5000:5000"
+    environment:
+      - PYTHONPATH=/app
+      - FLASK_APP=app/app.py
+      - FLASK_ENV=production
+      - MODELS_PATH=/app/models
+      - PUBLIC_URL=http://localhost:5000
+    volumes:
+      # Mount data directory to persist models and processed data
+      - ./data:/app/data
+      - ./models:/app/models
+      # Mount logs directory
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - sentiment-network
+
+  # Optional: Jupyter notebook service for development
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: imdb-jupyter
+    ports:
+      - "8888:8888"
+    environment:
+      - PYTHONPATH=/app
+    volumes:
+      - .:/app
+    command: >
+      bash -c "pip install jupyter &&
+               jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password=''"
+    restart: unless-stopped
+    networks:
+      - sentiment-network
+    profiles:
+      - dev  # Only start with --profile dev
+
+  # Optional: Redis for caching predictions (production enhancement)
+  redis:
+    image: redis:7-alpine
+    container_name: imdb-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - sentiment-network
+    profiles:
+      - cache  # Only start with --profile cache
+
+# Named volumes
+volumes:
+  redis_data:
+
+# Custom network
+networks:
+  sentiment-network:
+    driver: bridge

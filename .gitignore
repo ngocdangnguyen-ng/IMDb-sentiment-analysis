@@ -1,0 +1,247 @@
+# IMDb Sentiment Analysis - Git Ignore File
+
+# Large model files
+models/saved_models/best_dl_model.h5
+*.h5
+*.hdf5
+*.model
+*.pkl
+!models/preprocessors/*.pkl
+!models/saved_models/best_traditional_model.pkl
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+.env/
+pip-selfcheck.json
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Data Science & ML
+# Large dataset files
+*.csv
+*.tsv
+*.xlsx
+*.json
+*.parquet
+# *.h5  # Commented out to allow model files
+# *.hdf5
+# *.pkl
+# *.pickle
+*.joblib
+*.npy
+*.npz
+
+# Keep small sample data files if needed
+!sample_data.csv
+!test_data.csv
+
+# Model files (usually too large for git)
+models/model_checkpoints/
+models/cache/
+# *.model  # Commented out to allow model files for deployment
+# *.bin
+# *.pt
+# *.pth
+# *.onnx
+# *.tflite
+
+# Make exceptions for important model files that need to be deployed
+!models/saved_models/best_traditional_model.pkl
+!models/saved_models/best_dl_model.h5
+!models/preprocessors/tfidf_vectorizer.pkl
+!models/preprocessors/tokenizer.pkl
+!models/preprocessors/preprocessing_config.pkl
+!models/preprocessors/count_vectorizer.pkl
+
+# Processed data
+data/processed/
+data/interim/
+data/external/
+data/temp/
+
+# Results and outputs
+results/
+outputs/
+logs/
+*.log
+*.out
+
+# TensorFlow
+*.pb
+checkpoint
+model.ckpt.*
+graph.pbtxt
+
+# Weights and Biases
+wandb/
+
+# MLflow
+mlruns/
+
+# DVC (Data Version Control)
+.dvc
+.dvcignore
+
+# Streamlit
+.streamlit/
+
+# Flask
+instance/
+.webassets-cache
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Render specific
+.render/
+render-build.log
+
+# Docker
+.dockerignore
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.tmp
+*.temp
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Text Editor backups
+*.bak
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Certificates and keys
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+*.pfx
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Package files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Configuration files (sometimes contain sensitive data)
+config.local.py
+secrets.py
+local_settings.py
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/

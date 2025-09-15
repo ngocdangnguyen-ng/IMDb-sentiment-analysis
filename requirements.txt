@@ -1,0 +1,45 @@
+# IMDb Sentiment Analysis Project Requirements
+# Python dependencies for complete ML pipeline
+
+# Core Data Science Libraries
+numpy==1.26.4
+pandas==2.2.2
+scipy==1.11.4
+
+# Machine Learning Libraries  
+scikit-learn==1.5.2
+tensorflow==2.15.0
+
+# Deep Learning Support (alternative to TensorFlow's Keras)
+keras==2.15.0
+
+# Natural Language Processing
+nltk==3.9.1
+beautifulsoup4==4.12.3
+
+# Data Visualization
+matplotlib==3.7.1
+seaborn==0.13.2
+plotly==5.22.0
+wordcloud==1.9.3
+
+# Web Application
+flask==3.0.0
+werkzeug==3.0.1
+gunicorn==21.2.0
+# Jupyter Notebook Support
+notebook==7.0.6
+ipykernel==6.26.0
+nbformat==5.9.2
+jupyter==1.0.0
+
+# Development and Utilities
+python-dateutil==2.8.2
+pytz==2023.3
+six==1.16.0
+
+# Optional: Progress bars and formatting
+tqdm==4.66.1
+
+# Optional: Enhanced pickle support
+dill==0.3.7

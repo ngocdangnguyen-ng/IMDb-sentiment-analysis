@@ -1,0 +1,26 @@
+services:
+  # Web service
+  - type: web
+    name: imdb-sentiment-analysis
+    env: python
+    buildCommand: >
+      pip install -r requirements.txt && 
+      python -c "import nltk; import os; import shutil; nltk_data = os.path.expanduser('~/nltk_data'); os.makedirs(nltk_data, exist_ok=True); nltk.download('all', download_dir=nltk_data); print('NLTK data directory:', nltk.data.path); print('Downloaded all NLTK resources to:', nltk_data)"
+    startCommand: gunicorn --log-level info wsgi:app
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: true
+      - key: PYTHONPATH
+        value: .
+      - key: RENDER
+        value: true
+      - key: NLTK_DATA
+        value: /opt/render/project/nltk_data
+    healthCheckPath: /health
+    # Add a startup probe to ensure the app is truly ready
+    buildFilter:
+      paths:
+        - requirements.txt
+        - app/**
+        - src/**
+        - wsgi.py
