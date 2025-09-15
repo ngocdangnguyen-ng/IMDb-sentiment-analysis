@@ -53,6 +53,17 @@ except Exception as e:
     logger.error(f"Failed to verify NLTK resources: {str(e)}")
     logger.warning("The app will attempt to start, but may encounter NLTK-related errors.")
 
+# Check if the deep learning model exists
+dl_model_path = os.path.join(project_root, 'models', 'saved_models', 'best_dl_model.h5')
+if not os.path.exists(dl_model_path):
+    logger.warning(f"Deep learning model not found at {dl_model_path}")
+    logger.warning("Application will run with simplified prediction model only")
+    # Set environment variable to indicate missing model
+    os.environ['USE_SIMPLIFIED_MODEL'] = 'true'
+else:
+    logger.info(f"Deep learning model found at {dl_model_path}")
+    os.environ['USE_SIMPLIFIED_MODEL'] = 'false'
+
 # Import the Flask app
 from app.app import app
 
