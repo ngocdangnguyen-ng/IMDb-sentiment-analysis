@@ -69,7 +69,7 @@ python app.py
 ```
 
 ## Project Structure
-```
+```python
 IMDb-sentiment-analysis/
 │
 ├── app/                           # Web application
@@ -132,8 +132,9 @@ IMDb-sentiment-analysis/
 *For detailed technical documentation, challenges overcome, and comprehensive analysis, see [DETAILS.md](DETAILS.md)*
 
 ## Contact
-* **LinkedIn:** https://www.linkedin.com/in/ngocnguyen-fr
-* **Email:** nndnguyen2016@gmail.com
+- **Email**: [nndnguyen2016@gmail.com](mailto:nndnguyen2016@gmail.com)
+- **LinkedIn**: [https://www.linkedin.com/in/ngocnguyen-fr](https://www.linkedin.com/in/ngocnguyen-fr)
+- **Portfolio:** [https://portfolio-qyyg.onrender.com](https://portfolio-qyyg.onrender.com)
 
 ---
 I welcome feedback and suggestions for improvement. Thank you for visiting my project!
